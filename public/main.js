@@ -1,5 +1,3 @@
-let BROJ_POGODJENIH = 0;
-let BROJ_GENERIRANIH = 0;
 var rectsHit = 0;
 
 class Rectangle {
@@ -33,12 +31,7 @@ class Rectangle {
         return this.speed
     }
     update = function () {
-        //var canvas = document.getElementById("myCanvas");
-        //var ctx = canvas.getContext("2d");
         if (this.show) {
-            //this.ctx.save();
-            //this.ctx.translate(this.x, this.y);
-            //this.ctx.fillStyle = color;
             this.ctx.fillRect(this.x, this.y, this.width, this.height);;
             this.ctx.restore();
         }
@@ -97,7 +90,6 @@ function getCursorPosition(canvas, event) {
 window.onload = () => {
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
-    //var rect = new Rectangle(20, 20, 40, 40, '#000000', 5)
     var numberOfRects = Math.floor(Math.random() * 5) + 3
     var rects = []
     for (let i = 0; i < numberOfRects; ++i) {
@@ -116,9 +108,7 @@ window.onload = () => {
         console.log(mouseX)
         for (let rect of rects) {
             if (rect.isHit(mouseX, mouseY)) {
-                console.log("HIT")
                 rect.show = false
-                rectsHit++;
             }
         }
     })
